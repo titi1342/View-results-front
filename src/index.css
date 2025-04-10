@@ -1,13 +1,24 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'baloo';
+    src: url('./assets/fonts/Baloo2-Regular.ttf') format('truetype');
+    font-weight: normal;  /* Regular weight */
+    font-style: normal;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+    font-family: 'baloo';
+    src: url('./assets/fonts/Baloo2-Bold.ttf') format('truetype');
+    font-weight: bold;  /* Bold weight */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'baloo';
+    src: url('./assets/fonts/Baloo2-SemiBold.ttf') format('truetype');
+    font-weight: 600;  /* SemiBold weight */
+    font-style: normal;
 }
