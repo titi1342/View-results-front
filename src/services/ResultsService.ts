@@ -1,5 +1,4 @@
 import axios from "axios";
-import ResultType from "../models/resultType";
 
 export const getSelectedResult = async (api: string) => {
 

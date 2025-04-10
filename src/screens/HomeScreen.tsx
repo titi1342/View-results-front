@@ -12,7 +12,7 @@ const HomeScreen = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:5000/check-password", {
+      const res = await fetch("https://view-results-back.onrender.com/check-password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ password }),
