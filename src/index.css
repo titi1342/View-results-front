@@ -7,6 +7,7 @@
     src: url('./assets/fonts/Baloo2-Regular.ttf') format('truetype');
     font-weight: normal;  /* Regular weight */
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -14,6 +15,7 @@
     src: url('./assets/fonts/Baloo2-Bold.ttf') format('truetype');
     font-weight: bold;  /* Bold weight */
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -21,4 +23,5 @@
     src: url('./assets/fonts/Baloo2-SemiBold.ttf') format('truetype');
     font-weight: 600;  /* SemiBold weight */
     font-style: normal;
+    font-display: swap;
 }
