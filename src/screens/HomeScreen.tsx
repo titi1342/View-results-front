@@ -83,7 +83,7 @@ const HomeScreen = () => {
             <button
               type="submit"
               className="w-full bg-blue-600 font-custom font-semibold text-white py-2 rounded-md hover:bg-blue-700 transition"
-              disabled={!user || !password}
+              disabled={user === "" || password === ""}
             >
               Log In
             </button>
