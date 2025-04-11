@@ -4,6 +4,7 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 
 const HomeScreen = () => {
   const [password, setPassword] = useState("");
+  const [user, setUser] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -15,7 +16,7 @@ const HomeScreen = () => {
       const res = await fetch("https://view-results-back.onrender.com/check-password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({ user, password }),
       });
 
       const data = await res.json();
@@ -23,7 +24,8 @@ const HomeScreen = () => {
       if (data.success) {
         setIsLoggedIn(true);
         setError("");
-        setPassword(""); // reset password input
+        setUser("");
+        setPassword("");
       } else {
         setError(data.message || "Mot de passe incorrect");
       }
@@ -44,23 +46,40 @@ const HomeScreen = () => {
         <div className="w-full max-w-sm bg-white shadow-lg rounded-xl p-6 space-y-6">
           <h2 className="text-2xl text-center text-gray-800 font-custom font-bold">Login Required 🔒</h2>
           <form onSubmit={handleLogin} className="space-y-4">
+            
+            {/* Username */}
+            <div>
+              <input
+                type="text"
+                placeholder="Username"
+                className="w-full px-4 py-2 border font-custom font-medium border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                value={user}
+                onChange={(e) => setUser(e.target.value)}
+              />
+            </div>
+      
+            {/* Password */}
             <div className="relative">
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
-                className="w-full px-4 py-2 border font-custom font-medium border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 pr-10 border font-custom font-medium border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
               <button
                 type="button"
-                onClick={() => setShowPassword(!showPassword)} // Bascule la visibilité du mot de passe
+                onClick={() => setShowPassword(!showPassword)}
                 className="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500"
               >
                 {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
               </button>
             </div>
+      
+            {/* Error */}
             {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+      
+            {/* Submit */}
             <button
               type="submit"
               className="w-full bg-blue-600 font-custom font-semibold text-white py-2 rounded-md hover:bg-blue-700 transition"
