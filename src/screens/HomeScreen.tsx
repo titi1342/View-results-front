@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ListScreen from "./ListScreen";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
@@ -83,7 +83,7 @@ const HomeScreen = () => {
             <button
               type="submit"
               className={`w-full bg-blue-600 font-custom font-semibold text-white py-2 rounded-md hover:bg-blue-700 transition
-                 ${user === "" || password === "" ? 'bg-blue-300 cursor-not-allowed' : ''}`}
+                 ${user === "" || password === "" ? 'bg-blue-300 cursor-not-allowed' : 'bg-blue-600'}`}
               disabled={user === "" || password === ""}
             >
               Log In
